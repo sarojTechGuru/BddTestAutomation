@@ -1,5 +1,8 @@
 package com.UI.PageClasses;
 
-public class HomePage {
+import com.UI.BasePo.BaseTest;
 
+public class HomePage extends BaseTest {
+
+	
 }
