@@ -1,0 +1,10 @@
+{
+	"urls": {
+		"baseUrl": "https://www.saucedemo.com/"
+	},
+	"testUsers": {
+		"username": "standard_user",
+		"password": "secret_sauce"
+	},
+	"Timeout": "30"
+}
