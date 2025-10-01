@@ -11,7 +11,7 @@ public class JsonReader {
 	static {
 		ObjectMapper obj = new ObjectMapper();
 		try {
-			rootnode = obj.readTree(new File("src/test/resources/TestData.json"));
+			rootnode = obj.readTree(new File("src/test/resources/TestData/TestData.json"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

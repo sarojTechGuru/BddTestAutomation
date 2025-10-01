@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","12796","Validate login flow","","2025-10-01","passed","2025-10-01","","Login flow validation","Validate login flow",""
+"","5199","Validate the elements in login page","","2025-10-01","passed","2025-10-01","","Login flow validation","Validate the elements in login page",""
+"","8288","Validate all items in homepage","","2025-10-01","failed","2025-10-01","","Validate the homepage functionality","Validate all items in homepage",""
+"","5818","Validate login flow","","2025-10-01","passed","2025-10-01","","Login flow validation","Validate login flow",""
+"","7485","Validate all items in homepage","","2025-10-01","broken","2025-10-01","","Validate the homepage functionality","Validate all items in homepage",""

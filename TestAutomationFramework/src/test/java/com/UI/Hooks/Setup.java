@@ -25,7 +25,7 @@ public class Setup {
 		WebDriverManager.chromedriver().setup();
 		BaseTest.driver = new ChromeDriver();
 		BaseTest.driver.manage().window().maximize();
-		BaseTest.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		BaseTest.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(JsonReader.getIntValue("implicitTimeout")));
 		BaseTest.driver.get(JsonReader.getNestedValue("urls", "baseUrl"));
 	}
 
