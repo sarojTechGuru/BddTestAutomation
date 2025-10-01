@@ -6,8 +6,7 @@ import com.UI.Utilities.JsonReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
-
+import org.junit.Assert;
 public class LoginTest {
 	LoginPage loginPage = new LoginPage();
 
@@ -28,7 +27,7 @@ public class LoginTest {
 
 	@Then("Validate that user laned on homepage")
 	public void validate_that_user_laned_on_homepage() {
-		Assert.assertEquals("Swag", loginPage.getHeaderLabel());
+		Assert.assertEquals("Swag Labs", loginPage.getHeaderLabel());
 	}
 
 }
