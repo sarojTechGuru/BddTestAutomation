@@ -7,5 +7,6 @@
 		"password": "secret_sauce"
 	},
 	"ExplicitTimeout": "10",
-	"implicitTimeout":"5"
+	"implicitTimeout":"5",
+	"browser":"Firefox"
 }

@@ -6,6 +6,9 @@ import java.io.InputStream;
 import java.time.Duration;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.apache.commons.compress.archivers.StreamingNotSupportedException;
 import org.apache.commons.io.FileUtils;
 import com.UI.BasePo.BaseTest;
 import com.UI.Utilities.DateTimeUtils;
@@ -21,11 +24,29 @@ import io.qameta.allure.AllureLifecycle;
 public class Setup {
 
 	@Before
-	public void init() {
-		WebDriverManager.chromedriver().setup();
-		BaseTest.driver = new ChromeDriver();
+	public void init() throws StreamingNotSupportedException {
+		String browser = JsonReader.getTtextValue("browser");
+		switch (browser.toLowerCase()) {
+		case "chrome":
+			WebDriverManager.chromedriver().setup();
+			BaseTest.driver = new ChromeDriver();
+			break;
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			BaseTest.driver = new FirefoxDriver();
+			break;
+		case "edge":
+			WebDriverManager.edgedriver().setup();
+			BaseTest.driver = new EdgeDriver();
+			break;
+		default:
+			throw new StreamingNotSupportedException(
+					browser + "is not supported or check test data file and pass correct browser name");
+		}
+
 		BaseTest.driver.manage().window().maximize();
-		BaseTest.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(JsonReader.getIntValue("implicitTimeout")));
+		BaseTest.driver.manage().timeouts()
+				.implicitlyWait(Duration.ofSeconds(JsonReader.getIntValue("implicitTimeout")));
 		BaseTest.driver.get(JsonReader.getNestedValue("urls", "baseUrl"));
 	}
 
