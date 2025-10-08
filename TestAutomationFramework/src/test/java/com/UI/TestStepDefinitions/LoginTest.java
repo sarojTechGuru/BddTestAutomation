@@ -53,5 +53,11 @@ public class LoginTest {
 	public void login_button_is_enabled() {
 		Assert.assertTrue(loginPage.isButtonEnabled());
 	}
+	
+	@Then ("validate the subheaders")
+	public void validate_the_subheaders() {
+		Assert.assertEquals("Accepted usernames are:", loginPage.getSubHeaderLabels("Accepted usernames are:"));
+	}
+	
 
 }

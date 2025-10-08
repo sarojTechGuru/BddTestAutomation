@@ -6,7 +6,7 @@
 		"username": "standard_user",
 		"password": "secret_sauce"
 	},
-	"ExplicitTimeout": "10",
-	"implicitTimeout":"5",
+	"ExplicitTimeout": 10,
+	"implicitTimeout":5,
 	"browser":"Firefox"
 }

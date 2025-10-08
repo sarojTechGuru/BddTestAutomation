@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.maven.shared.utils.io.FileUtils;
-import org.codehaus.plexus.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -49,8 +48,8 @@ public abstract class BaseTest {
 		return srcFile;
 	}
 
-	protected String getTextMessages(By locator) {
-		return driver.findElement(locator).getText();
+	protected String getTextMessages(By element) {
+		return driver.findElement(element).getText();
 	}
 
 	protected void waitForlocator(WebElement locator) {
@@ -74,5 +73,5 @@ public abstract class BaseTest {
 
 	protected boolean isElementEnabled(By locator) {
 		return driver.findElement(locator).isEnabled();
-	}
+	}	
 }
