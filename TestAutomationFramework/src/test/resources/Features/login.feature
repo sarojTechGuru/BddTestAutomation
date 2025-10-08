@@ -8,6 +8,7 @@ Feature: Login flow validation
     When User waits for login button to display
     Then Validate the user name and password field is present
     And Login button is enabled
+    And validate the subheaders
 
   @Sanity @TestCase02
   Scenario: Validate login flow

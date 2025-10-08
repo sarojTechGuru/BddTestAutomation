@@ -1,6 +1,7 @@
 package com.UI.PageClasses;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.UI.BasePo.BaseTest;
 
@@ -10,6 +11,7 @@ public class LoginPage extends BaseTest {
 	By password = By.id("password");
 	By loginButton = By.id("login-button");
 	By loginPageHeader = By.xpath("//div[@class='login_logo']");
+	String loginSubHeaders = "//h4[text()='%s']";//in case of parameterized Xpath or locator use String here and by at method level
 
 	public void enterUsername(String username) {
 		enterTextValue(userName, username);
@@ -42,6 +44,11 @@ public class LoginPage extends BaseTest {
 
 	public boolean isButtonEnabled() {
 		return isElementEnabled(loginButton);
+	}
+
+	public String getSubHeaderLabels(String dynamicHeaderLabel) {
+		By element = By.xpath(String.format(loginSubHeaders, dynamicHeaderLabel));
+		return getTextMessages(element);
 	}
 
 }
