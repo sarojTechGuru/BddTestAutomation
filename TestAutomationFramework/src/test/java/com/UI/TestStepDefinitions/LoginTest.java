@@ -59,5 +59,14 @@ public class LoginTest {
 		Assert.assertEquals("Accepted usernames are:", loginPage.getSubHeaderLabels("Accepted usernames are:"));
 	}
 	
-
+	@Then("Validate that error message displayed")
+	public void validate_that_error_message_displayed() {
+	   loginPage.isErrorMessagePresent();
+	}
+	
+	@Given("User has entered locked {string}")
+	public void user_has_entered_locked(String lockedUserName) {
+	    // Write code here that turns the phrase above into concrete actions
+	    loginPage.enterUsername(JsonReader.getNestedValue("testUsers", "locked_out_user"));
+	}
 }

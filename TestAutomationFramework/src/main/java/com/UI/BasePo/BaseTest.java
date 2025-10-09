@@ -8,11 +8,13 @@ import java.util.List;
 
 import org.apache.maven.shared.utils.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.UI.Utilities.DateTimeUtils;
@@ -52,7 +54,7 @@ public abstract class BaseTest {
 		return driver.findElement(element).getText();
 	}
 
-	protected void waitForlocator(WebElement locator) {
+	protected void explicitWait(WebElement locator) {
 		long time = JsonReader.getIntValue("ExplicitTimeout");
 		Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(time));
 		wait.until(ExpectedConditions.visibilityOf(locator));
@@ -67,11 +69,33 @@ public abstract class BaseTest {
 		return actualLabels;
 	}
 
-	protected boolean isElementPresent(By locator) {
+	protected boolean isElementVisible(By locator) {
 		return driver.findElement(locator).isDisplayed();
 	}
 
 	protected boolean isElementEnabled(By locator) {
 		return driver.findElement(locator).isEnabled();
-	}	
+	}
+
+	protected void fluentWait(By element) {
+		Wait<WebDriver> wait = new FluentWait<>(driver)
+				.withTimeout(Duration.ofSeconds(JsonReader.getIntValue("ExplicitTimeout")))
+				.pollingEvery(Duration.ofSeconds(JsonReader.getIntValue("pollingTime")))
+				.ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.presenceOfElementLocated(element));
+	}
+
+	protected boolean isElementPresent(By locator) {
+		boolean flag = false;
+
+		try {
+			driver.findElement(locator);
+			flag = true;
+		} catch (NoSuchElementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		fluentWait(locator);
+		return flag;
+	}
 }
