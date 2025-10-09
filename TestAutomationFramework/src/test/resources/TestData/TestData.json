@@ -4,9 +4,11 @@
 	},
 	"testUsers": {
 		"username": "standard_user",
-		"password": "secret_sauce"
+		"password": "secret_sauce",
+		"lockedUser":"locked_out_user"
 	},
 	"ExplicitTimeout": 10,
 	"implicitTimeout":5,
-	"browser":"Firefox"
+	"pollingTime":5,
+	"browser":"Chrome"
 }

@@ -12,6 +12,7 @@ public class LoginPage extends BaseTest {
 	By loginButton = By.id("login-button");
 	By loginPageHeader = By.xpath("//div[@class='login_logo']");
 	String loginSubHeaders = "//h4[text()='%s']";//in case of parameterized Xpath or locator use String here and by at method level
+	By errorMessage=By.xpath("//div[@class='error-message-container error']");
 
 	public void enterUsername(String username) {
 		enterTextValue(userName, username);
@@ -50,5 +51,8 @@ public class LoginPage extends BaseTest {
 		By element = By.xpath(String.format(loginSubHeaders, dynamicHeaderLabel));
 		return getTextMessages(element);
 	}
-
+	
+	public boolean isErrorMessagePresent() {
+		return isElementPresent(errorMessage);
+	}
 }

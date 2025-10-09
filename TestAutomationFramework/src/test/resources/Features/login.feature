@@ -16,3 +16,10 @@ Feature: Login flow validation
     And user entered "<password>"
     When User clicked on login button
     Then Validate that user landed on homepage
+    
+    @Regression @TestCase03
+  Scenario: Validate user locked login flow
+    Given User has entered locked "<lockedUsername>"
+    And user entered "<password>"
+    When User clicked on login button
+    Then Validate that error message displayed
