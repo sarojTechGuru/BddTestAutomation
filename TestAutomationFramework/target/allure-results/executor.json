@@ -1,0 +1,10 @@
+{
+	"name": "Saroj Kumar",
+	"type": "Automation Tech",
+	"url": "",
+	"buildOrder": 123,
+	"buildName": "BddTestAutomationFramework",
+	"buildUrl": "http://your-jenkins-instance.com/job/MyProject/123",
+	"reportUrl": "http://your-jenkins-instance.com/job/MyProject/123/AllureReport",
+	"reportName": "Allure Report"
+}
